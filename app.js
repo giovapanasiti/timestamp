@@ -25,6 +25,10 @@ app.get('/date/:dateParam', function(req, res, next){
     naturalDate = naturalDate.toLocaleDateString("en-US", dateFormatOpt);
 
     var unixDate = new Date(dateValue).getTime()/1000;
+  } else {
+    var unixDate = dateValue;
+    var naturalDate = new Date(dateValue * 1000);
+    naturalDate = naturalDate.toLocaleDateString("en-US", dateFormatOpt);
   }
 
   // return dateValue;
